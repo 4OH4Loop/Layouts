@@ -8,38 +8,59 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var message = ""
+    @State private var messageString = "When the Genius Bar Needs Help, They Call You"
     var body: some View {
-        VStack {
-            Text(message)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .minimumScaleFactor(0.5)
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.red)
-                .frame(minHeight: 150)
-                .frame(maxWidth: .infinity)
-                .border(.orange, width: 2)
-                .padding()
-            
-            HStack {
-                Button("Awesome") {
-                    let messageString = ["You Are Awesome!", "You Are Great!"]
-                    message = messageString[0]
-                }
-                Button("Great!") {
-                    let messageString = ["You Are Awesome!", "You Are Great!"]
-                    message = messageString[1]
-                }
 
+            
+            VStack {
+                Text("You Have Skills!")
+                    .font(.largeTitle)
+                    .fontWeight(.black)
+                    .foregroundStyle(.goldBC)
+                    .padding()
+                    .background(Color("maroon - BC"))
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                
+                Spacer()
+                
+                Text(messageString)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.red)
+                    .frame(minHeight: 150)
+                    .frame(maxWidth: .infinity)
+                //                .border(.orange, width: 2)
+                    .padding()
+                
+                Spacer()
+                
+                HStack {
+                    Button("Awesome") {
+                        messageString = "You Are Awesome!"
+                    }
+                    
+                    Spacer()
+                    
+                    Button("Great!") {
+                        messageString = "You Are Great!"
+                    }
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                .font(.title2)
+                //            .border(.orange, width: 5)
+                .padding()
+                .tint(.vermillion)
             }
-            .buttonStyle(.borderedProminent)
-            .font(.title2)
-            .border(.orange, width: 5)
-            }
+            .background(
+                Gradient(colors: [.white, .blue, .red])
+            )
+        }
             
         }
-    }
+
 
 #Preview {
     ContentView()
